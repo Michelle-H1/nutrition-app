@@ -12,13 +12,13 @@
 
 <body>
 	<div class="flex v-screen p-20">
-		<div class="m-auto">
-			<h1 class=" bg-cyan-400 rounded-tl-lg rounded-tr-lg max-w-sm md:text-center font-semibold text-3xl text-slate-50 ">Nutrition Calculator</h1>
-			<form class="p-6 bg-cyan-800 max-w-sm rounded-bl-lg rounded-br-lg">
+		<div class="box m-auto">
+			<h1 class="title bg-cyan-500 rounded-tl-lg rounded-tr-lg max-w-sm md:text-center text-3xl text-slate-100 p-5">Nutrition Calculator</h1>
+			<form class="p-8 bg-cyan-900 max-w-sm rounded-bl-lg rounded-br-lg">
 				<table>
 
 					<tr>
-						<td><label class="block text-slate-50 text-lg font-semibold" for="genderName">Gender</label>
+						<td><label class="block text-slate-50 text-lg pr-7" for="genderName">Gender</label>
 						</td>
 						<td><select id="gender">
 								<option value="male">Male</option>
@@ -28,19 +28,19 @@
 					</tr>
 
 					<tr>
-						<td><label class="text-slate-50 text-lg font-semibold" for="age">Age</label></td>
-						<td><input type="text" id="age" placeholder="50"></td>
+						<td><label class="text-slate-50 text-lg" for="age">Age</label></td>
+						<td><input type="text" id="age"></td>
 					</tr>
 					<tr>
-						<td><label class="text-slate-50 text-lg font-semibold" for="weight">Weight</label></td>
-						<td><input type="text" id="weight" placeholder="70kg"></td>
+						<td><label class="text-slate-50 text-lg" for="weight">Weight<span> (kg)</span></label></td>
+						<td><input type="text" id="weight"></td>
 					</tr>
 					<tr>
-						<td><label class="text-slate-50 text-lg font-semibold" for="height">Height</label></td>
-						<td><input type="text" id="height" placeholder="180cm"></td>
+						<td><label class="text-slate-50 text-lg" for="height">Height<span> (cm)</span></label></td>
+						<td><input type="text" id="height"></td>
 					</tr>
 					<tr>
-						<td><label class="text-slate-50 text-lg font-semibold pr-3" for="activity">Activity</label></td>
+						<td><label class="text-slate-50 text-lg pr-3" for="activity">Activity</label></td>
 						<td><select id="activity" name="activity">
 								<option value="sedentary" id="sendentary">Sedentary</option>
 								<option value="lightActive" id="lightActive">Lightly active</option>
@@ -58,12 +58,13 @@
 						</td>
 					</tr>
 					<tr>
-						<td><button class="mt-4 bg-cyan-400 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded"
-							type="button" id="reset">Reset</button></td>
-						<td><button class="mt-4 bg-cyan-400 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded"
-								type="button" id="calculate">Calculate</button></td>
+
 					</tr>
 				</table>
+				<td><button class="mt-4 bg-cyan-500 hover:bg-gray-400 text-white py-2 px-4 rounded"
+					type="button" id="reset">Reset</button></td>
+				<td><button class="mt-4 bg-cyan-500 hover:bg-gray-400 text-white py-2 px-4 rounded"
+						type="button" id="calculate">Calculate</button></td>
 			</form>
 		</div>	
 		</div>
@@ -72,25 +73,25 @@
 	<!--Separate nutritonal info -->
 	<div class="flex w-screen" id="displayInfo">
 	
-		<div class="m-auto w-2/3 bg-slate-50 p-4">
+		<div class="m-auto w-5/6 p-4">
 			<div class="flex justify-around">
 				<div class="font-bold text-gray-700 rounded-full border-2 border-indigo-200 bg-white flex items-center justify-center"
 					style="height: 100px; width: 100px; font-size: 20px;" id="bmr"></div>
 
-				<div class="font-bold text-gray-700 rounded-full border-2 border-indigo-200 bg-white flex items-center justify-center"
+				<div class="font-bold text-gray-700 rounded-full border-2 border-cyan-200 bg-white flex items-center justify-center"
 					style="height: 100px; width: 100px; font-size: 20px;" id="tdee"></div>
 
-				<div class="font-bold text-gray-700 rounded-full border-2 border-indigo-200 bg-white flex items-center justify-center"
+				<div class="font-bold text-gray-700 rounded-full border-2 bg-white flex items-center justify-center"
 					style="height: 100px; width: 100px; font-size: 20px;" id="bmi"></div>
 			</div>
 	
 			<div class="flex justify-around">
-				<div class="font-bold text-gray-700 pt-2" >BMR <i class="fa-solid fa-circle-info" title="Basal Metabolic Rate - Calories required for body to function"></i></div>
-				<div class="font-bold text-gray-700 pt-2">TDEE <i class="fa-solid fa-circle-info" title="Total Daily Energy Expenditure - Total amount of calories needed to mantain current weight"></i></div>
-				<div class="font-bold text-gray-700 pt-2">BMI <i class="fa-solid fa-circle-info" title="BMI - Indicates levels between a range "></i></div>
+				<div class="font-bold text-gray-700 pt-2" >BMR <i class="bmr fa-solid fa-circle-info" title="Basal Metabolic Rate - Calories required for body to function"></i></div>
+				<div class="font-bold text-gray-700 pt-2">TDEE <i class="tdee fa-solid fa-circle-info" title="Total Daily Energy Expenditure - Total amount of calories needed to mantain current weight"></i></div>
+				<div class="font-bold text-gray-700 pt-2">BMI <i class="bmi fa-solid fa-circle-info" title="BMI - Indicates levels between a range "></i></div>
 			</div>
-		<div class="m-auto w-2/3 bg-slate-50 rounded grid content-evenly p-4">
-	<table class="border-separate border border-slate-400">
+		<div class="m-auto w-5/6 rounded grid content-evenly p-4">
+	<table class="border-separate border border-slate-400 bg-slate-50">
 		<thead>
 		  <tr>
 			<th colspan="2" class="border border-slate-300 ...">General</th>		
@@ -125,7 +126,7 @@
 		  </tr>
 		  <tr>
 			<td class="">Fibre</td>
-			<td class=""></td>
+			<td class="" id="fibre"></td>
 			<td class="">Folate</td>
 			<td class=""></td>
 			<td class="">Zinc</td>

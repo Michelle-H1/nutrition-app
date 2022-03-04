@@ -68,7 +68,7 @@ var calculateNutrition = function(){
     }
     //checks if inputs are numbers and outputs alert if they aren't
     if (isNaN(age) || isNaN(weight) || isNaN(height) || age < 18)
-        alert("You must enter a numerical value or be over the age of 18");
+        alert("You must enter a numerical value and be over the age of 18 to use this app");
         //need to get if no value or over 18
     //male and sedentary
     else if($('gender').value == "male" && $("activity").selectedIndex == 0){
@@ -114,6 +114,28 @@ var calculateNutrition = function(){
         $("bmi").innerHTML = bmi.toFixed(1);
         $('calories').innerHTML = tdee.toFixed(0)
     }
+    //BMI colour change
+    //underweight
+    if(bmi < 18){
+        $("bmi").innerHTML = "<span style='color: blue;'>"+bmi.toFixed(1)+"</span>";
+    }
+    //healthy weight
+    if(bmi > 18 && bmi < 25){
+        $("bmi").innerHTML = "<span class = 'bg-green-600 border-red-500' style='color: lawngreen; border: green'>"+bmi.toFixed(1)+"</span>";
+    }
+    //overweight
+    if(bmi > 25 & bmi < 30){
+        $("bmi").innerHTML = "<span style='color: gold;'>"+bmi.toFixed(1)+"</span>";
+    }
+    //obese
+    if(bmi > 30 & bmi < 35){
+        $("bmi").innerHTML = "<span style='color: orange;'>"+bmi.toFixed(1)+"</span>";
+    }
+    //morbidly obese
+    if(bmi > 35){
+        $("bmi").innerHTML = "<span style='color: red;'>"+bmi.toFixed(1)+"</span>";
+    }
+    
     //female 
     //if female and under 58 and sedentary
     //if female and under 58 and Lightly active
