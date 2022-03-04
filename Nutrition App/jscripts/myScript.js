@@ -29,11 +29,29 @@ var femaleCheckbox = function() {
 var calculateMaleCommon = function(){
     $("water").innerHTML = "2.5L";
     $("fibre").innerHTML = "38g";
+    $("vitD").innerHTML = "15 &#181g";
+    $("vitC").innerHTML = "110 mg";
+    $("vitA").innerHTML = "750 &#181g";
+    $("folate").innerHTML = "330 &#181g";
+    $("iron").innerHTML = "11 mg";
+    $("magnesium").innerHTML = "350 mg";
+    $("calcium").innerHTML = "860 mg";
+    $("zinc").innerHTML = "14 mg";
+
 }
 var calculateWomenCommon = function(){
     $("water").innerHTML = "2L";
     $("fibre").innerHTML = "25g";
+    $("vitD").innerHTML = "15 &#181g";
+    $("vitC").innerHTML = "95 mg";
+    $("vitA").innerHTML = "650 &#181g";
+    $("folate").innerHTML = "330 &#181g";
+    //iron
+    $("magnesium").innerHTML = "300 mg";
+    $("calcium").innerHTML = "860 mg";
+    $("zinc").innerHTML = "11 mg";
 }
+//iron dif if over 58
 
 var calculateNutrition = function(){
     //values
@@ -72,20 +90,21 @@ var calculateNutrition = function(){
         //need to get if no value or over 18
     //male and sedentary
     else if($('gender').value == "male" && $("activity").selectedIndex == 0){
-        calculateMaleCommon();
+        
         var tdee = bmrM * sedentary_Activity;  
-        $("bmr").innerHTML = bmrM;
+        $("bmr").innerHTML = bmrM.toFixed(0);
         $("tdee").innerHTML = tdee.toFixed(0);
         $("bmi").innerHTML = bmi.toFixed(1);
         $('calories').innerHTML = tdee.toFixed(0)
         $('protein').innerHTML = Math.floor(protein.toFixed(0))+"g";
+        calculateMaleCommon();
 
 
     }
     //male and Lightly active
     else if($('gender').value == "male" && $("activity").selectedIndex == 1){
         var tdee = bmrM * lightly_Active;
-        $("bmr").innerHTML = bmrM;
+        $("bmr").innerHTML = bmrM.toFixed(0);
         $("tdee").innerHTML = tdee.toFixed(0);
         $("bmi").innerHTML = bmi.toFixed(1);
         $('calories').innerHTML = tdee.toFixed(0)
@@ -93,7 +112,7 @@ var calculateNutrition = function(){
     //male and Moderately active
     else if($('gender').value == "male" && $("activity").selectedIndex == 2){   
         var tdee = bmrM * moderately_Active;
-        $("bmr").innerHTML = bmrM;
+        $("bmr").innerHTML = bmrM.toFixed(0);
         $("tdee").innerHTML = tdee.toFixed(0);
         $("bmi").innerHTML = bmi.toFixed(1);
         $('calories').innerHTML = tdee.toFixed(0)
@@ -101,7 +120,7 @@ var calculateNutrition = function(){
     //male and Heavily active
     else if($('gender').value == "male" && $("activity").selectedIndex == 3){
         var tdee = bmrM * heavily_Active;
-        $("bmr").innerHTML = bmrM;
+        $("bmr").innerHTML = bmrM.toFixed(0);
         $("tdee").innerHTML = tdee.toFixed(0);
         $("bmi").innerHTML = bmi.toFixed(1);
         $('calories').innerHTML = tdee.toFixed(0)
@@ -109,7 +128,7 @@ var calculateNutrition = function(){
     //male and athlete
     else if($('gender').value == "male" && $("activity").selectedIndex == 4){
         var tdee = bmrM * athlete_Activity;
-        $("bmr").innerHTML = bmrM;
+        $("bmr").innerHTML = bmrM.toFixed(0);
         $("tdee").innerHTML = tdee.toFixed(0);
         $("bmi").innerHTML = bmi.toFixed(1);
         $('calories').innerHTML = tdee.toFixed(0)
@@ -117,22 +136,27 @@ var calculateNutrition = function(){
     //BMI colour change
     //underweight
     if(bmi < 18){
-        $("bmi").innerHTML = "<span style='color: blue;'>"+bmi.toFixed(1)+"</span>";
+        $("bmi").style.borderColor = "aqua";
+        $("bmi").innerHTML = "<span style='color: aqua;'>"+bmi.toFixed(1)+"</span>";
     }
     //healthy weight
     if(bmi > 18 && bmi < 25){
-        $("bmi").innerHTML = "<span class = 'bg-green-600 border-red-500' style='color: lawngreen; border: green'>"+bmi.toFixed(1)+"</span>";
+        $("bmi").style.borderColor = "lawngreen";
+        $("bmi").innerHTML = "<span style='color: lawngreen;'>"+bmi.toFixed(1)+"</span>";
     }
     //overweight
     if(bmi > 25 & bmi < 30){
+        $("bmi").style.borderColor = "gold";
         $("bmi").innerHTML = "<span style='color: gold;'>"+bmi.toFixed(1)+"</span>";
     }
     //obese
     if(bmi > 30 & bmi < 35){
+        $("bmi").style.borderColor = "orange";
         $("bmi").innerHTML = "<span style='color: orange;'>"+bmi.toFixed(1)+"</span>";
     }
     //morbidly obese
     if(bmi > 35){
+        $("bmi").style.borderColor = "red";
         $("bmi").innerHTML = "<span style='color: red;'>"+bmi.toFixed(1)+"</span>";
     }
     
