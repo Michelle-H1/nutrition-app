@@ -3,7 +3,7 @@
 }
 body{
     background-color: #f1f5f9;
-    font-family: "Helvetica", Sans-Serif;
+    font-family: "Arial", Sans-Serif;
     font-weight: 500;
     font-size:1rem;
 }
@@ -14,6 +14,7 @@ input, #activity, #gender{
   }
   .title{
       font-weight: 600;
+      font-family: "Arial", Sans-Serif;
   }
   button{
     font-weight: 600;
