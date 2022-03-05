@@ -1,10 +1,8 @@
 window.onload = function () {
     $("calculate").onclick = function () { calculateNutrition(); }
-    // $("calculate").onclick = function(){showInfo();}
     $('reset').onclick = function () { ResetTextfields(); }
     femaleCheckbox();
 }
-
 
 var $ = function (id) {
     return document.getElementById(id);
@@ -15,27 +13,24 @@ var ResetTextfields = function () {
     $("height").value = " ";
     $("displayInfo").style.display = "none";
 }
-//need to make function to check if dropdown is female than pregnant option is avaiable
 
-//check if dropdown if female
-var femaleCheckbox = function () {
-    if ($("gender").selectedIndex == 1) {
-        $("pregnant").disabled = false;
-    }
-    if ($("gender").selectedIndex == 0) {
+var femaleCheckbox = function(){
+    if($("gender").selectedIndex == 0){
         $("pregnant").disabled = true;
     }
-
-    //var isFemale = $("female").checked;
-    // $("pregnant").disable = !isFemale;
+    else{
+        $("pregnant").disabled = false;
+    }
 }
 
 //pregnant values
-/*
-$("vitC").innerHTML = "105 mg";
-$("vitA").innerHTML = "700 &#181g";
-$("folate").innerHTML = "600 &#181g";
-*/
+
+var calculatePregnant = function(){
+    $("vitC").innerHTML = "105 mg";
+    $("vitA").innerHTML = "700 &#181g";
+    $("folate").innerHTML = "600 &#181g";
+}
+
 
 var calculateMaleCommon = function () {
     $("water").innerHTML = "2.5L";
@@ -54,15 +49,16 @@ var calculateFemaleCommon = function () {
     $("water").innerHTML = "2L";
     $("fibre").innerHTML = "25g";
     $("vitD").innerHTML = "15 &#181g";
-    $("vitC").innerHTML = "95 mg";
-    $("vitA").innerHTML = "650 &#181g";
-    $("folate").innerHTML = "330 &#181g";
-    //iron
     $("magnesium").innerHTML = "300 mg";
     $("calcium").innerHTML = "860 mg";
     $("zinc").innerHTML = "11 mg";
+    
+    
+    $("folate").innerHTML = "330 &#181g";
+    $("vitA").innerHTML = "650 &#181g";
+    $("vitC").innerHTML = "95 mg";
+    
 }
-//iron dif if over 58
 
 var calculateNutrition = function () {
     var age = $("age").value;
@@ -82,6 +78,7 @@ var calculateNutrition = function () {
     //different variables
     var bmrM = 66 + (13.7 * weight) + (5 * height) - (6.8 * age);
     var bmrF = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
+    
 
     // tdee = bmrM * ActivityLevel
     var sedentary_Activity = 1.2;
@@ -90,17 +87,20 @@ var calculateNutrition = function () {
     var heavily_Active = 1.725;
     var athlete_Activity = 1.9;
 
-    //hides nutrition until calculate button clicked
+    //hides nutrition information until calculate button clicked
     if (x.style.display === "block") {
         x.style.display = "none";
     }
     else {
         x.style.display = "block";
     }
+
     //checks if inputs are numbers and outputs alert if they aren't
     if (isNaN(age) || isNaN(weight) || isNaN(height) || age < 18)
-        alert("You must enter a numerical value and be over the age of 18 to use this app");
-    //need to get if no value or over 18
+    {
+        alert("You must enter valid numerical values in all fields and be over the age of 18 to use this app");
+        x.style.display = "none";
+    }
     //male and sedentary
     if ($('gender').value == "male" && $("activity").selectedIndex == 0) {
         var tdee = bmrM * sedentary_Activity;
@@ -163,6 +163,13 @@ var calculateNutrition = function () {
         else {
             $("iron").innerHTML = "11 mg";
         }
+        if($("pregnant").checked == true){
+            calculatePregnant();
+            $("bmr").innerHTML = bmrF.toFixed(0);
+            var tdee = (bmrF * sedentary_Activity) + 300;
+            $("tdee").innerHTML = tdee.toFixed(0);
+            $('calories').innerHTML = tdee.toFixed(0)
+        }
     }
     //female and Lightly active
     if ($('gender').value == "female" && $("activity").selectedIndex == 1) {
@@ -178,6 +185,14 @@ var calculateNutrition = function () {
         else {
             $("iron").innerHTML = "11 mg";
         }
+        if($("pregnant").checked == true){
+            calculatePregnant();
+            $("bmr").innerHTML = bmrF.toFixed(0);
+            var tdee = (bmrF * lightly_Active) + 300;
+            $("tdee").innerHTML = tdee.toFixed(0);
+            $('calories').innerHTML = tdee.toFixed(0)
+        }
+
     }
     //female and Moderately active
     if ($('gender').value == "female" && $("activity").selectedIndex == 2) {
@@ -192,6 +207,13 @@ var calculateNutrition = function () {
         }
         else {
             $("iron").innerHTML = "11 mg";
+        }
+        if($("pregnant").checked == true){
+            calculatePregnant();
+            $("bmr").innerHTML = bmrF.toFixed(0);
+            var tdee = (bmrF * moderately_Active) + 300;
+            $("tdee").innerHTML = tdee.toFixed(0);
+            $('calories').innerHTML = tdee.toFixed(0)
         }
     }
     //female and Heavily active
@@ -208,6 +230,13 @@ var calculateNutrition = function () {
         else {
             $("iron").innerHTML = "11 mg";
         }
+        if($("pregnant").checked == true){
+            calculatePregnant();
+            $("bmr").innerHTML = bmrF.toFixed(0);
+            var tdee = (bmrF * heavily_Active) + 300;
+            $("tdee").innerHTML = tdee.toFixed(0);
+            $('calories').innerHTML = tdee.toFixed(0)
+        }
     }
     //female and athlete
     if ($('gender').value == "female" && $("activity").selectedIndex == 4) {
@@ -222,6 +251,13 @@ var calculateNutrition = function () {
         }
         else {
             $("iron").innerHTML = "11 mg";
+        }
+        if($("pregnant").checked == true){
+            calculatePregnant();
+            $("bmr").innerHTML = bmrF.toFixed(0);
+            var tdee = (bmrF * athlete_Activity) + 300;
+            $("tdee").innerHTML = tdee.toFixed(0);
+            $('calories').innerHTML = tdee.toFixed(0)
         }
     }
     //BMI colour change
@@ -250,28 +286,6 @@ var calculateNutrition = function () {
         $("bmi").style.borderColor = "red";
         $("bmi").innerHTML = "<span style='color: red;'>" + bmi.toFixed(1) + "</span>";
     }
-
-    //female 
-    //if female and under 58 and sedentary
-    //if female and under 58 and Lightly active
-    //if female and under 58 and Moderately active
-    //if female and under 58 and Heavily active
-    //if female and under 58 and Athlete
-
-    //if female and over 58 and sedentary
-    //if female and over 58 and Lightly active
-    //if female and over 58 and Moderately active
-    //if female and over 58 and Heavily active
-    //if female and over 58 and Athlete
-
-    //if female and pregnant and sedentary
-    //if female and pregnant and lightly active
-    //if female and pregnant and moderately active
-    //if female and pregnant and heavily active
-    //if female and pregnant and athlete
-
-    //five different outcomes for male and 15 for women 
-
     else {
         $("resultText").innerHTML = ("error");
     }
