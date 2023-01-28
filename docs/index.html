@@ -3,113 +3,223 @@
 
 <head>
 	<title>Nutrition App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-	<script type="text/javascript" src="jscripts/myScript.js"></script>
-	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+	<link rel="icon" href="images/apple.png">
+	<script type="text/javascript" src="jscripts/myscript.js"></script>
 </head>
 
 <body>
-	<div class="flex v-screen w-screen p-20">
-		<div class="box m-auto content-center items-center">
-			<h1
-				class="title bg-cyan-500 rounded-tl-lg rounded-tr-lg max-w-sm md:text-center text-3xl text-slate-100 p-5">
-				Nutrition Calculator</h1>
-			<form class="p-8 bg-cyan-700 max-w-sm rounded-bl-lg rounded-br-lg">
-				<table>
-
-					<tr>
-						<td><label class="block text-slate-50 text-lg pr-7" for="genderName">Gender</label>
-						</td>
-						<td><select id="gender" onchange="femaleCheckbox()">
-								<option value="male">Male</option>
-								<option value="female">Female</option>
-							</select>
-						</td>
-					</tr>
-
-					<tr>
-						<td><label class="text-slate-50 text-lg" for="age">Age</label></td>
-						<td><input type="text" id="age"></td>
-					</tr>
-					<tr>
-						<td><label class="text-slate-50 text-lg" for="weight">Weight<span> (kg)</span></label></td>
-						<td><input type="text" id="weight"></td>
-					</tr>
-					<tr>
-						<td><label class="text-slate-50 text-lg" for="height">Height<span> (cm)</span></label></td>
-						<td><input type="text" id="height"></td>
-					</tr>
-					<tr>
-						<td><label class="text-slate-50 text-lg pr-3" for="activity">Activity</label></td>
-						<td><select id="activity" name="activity">
-								<option value="sedentary" id="sendentary">Sedentary</option>
-								<option value="lightActive" id="lightActive">Lightly active</option>
-								<option value="modActive" id="modActive">Moderately active</option>
-								<option value="heavyActive" id="heavyActive">Heavily active</option>
-								<option value="athlete" id="athlete">Athlete</option>
-							</select>
-						</td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td><label class="text-slate-50 text-lg pr-2" for="pregnant">Pregnant</label>
-							<input type="checkbox" id="pregnant">
-						</td>
-					</tr>
-					<tr>
-
-					</tr>
-				</table>
-				<td><button class="mt-4 bg-cyan-500 hover:bg-gray-400 text-white py-2 px-4 rounded" type="button"
-						id="reset">Reset</button></td>
-				<td><button class="mt-4 bg-cyan-500 hover:bg-gray-400 text-white py-2 px-4 rounded" type="button"
-						id="calculate">Calculate</button></td>
-			</form>
-		</div>
-	</div>
-	<!--Nutrional TDEE BMR BMI-->
-
-	<!--Separate nutritonal info -->
-	<div class="flex w-screen" id="displayInfo">
-
-		<div class="m-auto w-5/6 p-4">
-			<div class="flex justify-around">
-				<div class="font-bold text-gray-700 rounded-full border-2 border-indigo-200 bg-white flex items-center justify-center"
-					style="height: 100px; width: 100px; font-size: 20px;" id="bmr"></div>
-
-				<div class="font-bold text-gray-700 rounded-full border-2 border-cyan-200 bg-white flex items-center justify-center"
-					style="height: 100px; width: 100px; font-size: 20px;" id="tdee"></div>
-
-				<div class="font-bold text-gray-700 rounded-full border-2 bg-white flex items-center justify-center"
-					style="height: 100px; width: 100px; font-size: 20px;" id="bmi"></div>
-			</div>
-
-			<div class="flex justify-around">
-				<div class="font-bold text-gray-700 pt-2">BMR <i class="bmr fa-solid fa-circle-info"
-						title="Basal Metabolic Rate - Calories required for body to function"></i></div>
-				<div class="font-bold text-gray-700 pt-2">TDEE <i class="tdee fa-solid fa-circle-info"
-						title="Total Daily Energy Expenditure - Total amount of calories needed to mantain current weight"></i>
+	<!--Navigation Bar-->
+	<header>
+		<nav>
+			<a id="home"></a>
+			<div class="w3-top ">
+				<div class="w3-bar w3-white w3-theme navigation-bar" id="myNavbar">
+					<a href="https://mhyndsjsproject2022.z6.web.core.windows.net/"
+						class="w3-bar-item w3-button w3-wide w3-hover-blue w3-text-white" style="width:20%">Home</a>
+					<a href="https://www.gov.ie/en/publication/da7f19-eat-well/?referrer=/health-initiatives/heg/"
+						class="w3-bar-item w3-button w3-wide w3-hover-yellow w3-hide-small w3-text-white"
+						style="width:20%">Healthy
+						Eating</a>
+					<a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html"
+						class="w3-bar-item w3-button w3-wide w3-hover-green w3-hide-small w3-text-white"
+						style="width:20%">BMI</a>
+					<a href="https://www.nhs.uk/live-well/exercise/"
+						class="w3-bar-item w3-button w3-wide w3-hover-orange w3-hide-small w3-text-white"
+						style="width:20%">Exercise</a>
+					<a href="https://multimedia.efsa.europa.eu/drvs/index.htm"
+						class="w3-bar-item w3-button w3-wide w3-hover-red  w3-hide-small w3-text-white"
+						style="width:20%">Nutrients</a>
+					<a href="javascript:void(0)"
+						class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium w3-hover-blue w3-text-white"
+						onclick="myFunction()"><span style="color:white">&#9776;</span></a>
 				</div>
-				<div class="font-bold text-gray-700 pt-2">BMI <i class="bmi fa-solid fa-circle-info"
-						title="BMI - Indicates levels between a range "></i></div>
+				<!--Change right links to hamburger menu-->
+				<div id="demo" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium navigation-bar">
+					<a href="https://www.gov.ie/en/publication/da7f19-eat-well/?referrer=/health-initiatives/heg/"
+						class="w3-bar-item w3-button w3-hover-yellow w3-text-white w3-border-top w3-border-bottom">Healthy
+						Eating</a>
+					<a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html"
+						class="w3-bar-item w3-button w3-hover-green w3-text-white w3-border-bottom">BMI</a>
+					<a href="https://www.nhs.uk/live-well/exercise/"
+						class="w3-bar-item w3-button w3-hover-orange w3-text-white w3-border-bottom">Exercise</a>
+					<a href="https://multimedia.efsa.europa.eu/drvs/index.htm"
+						class="w3-bar-item w3-button w3-hover-red w3-text-white">Nutrients</a>
+				</div>
 			</div>
-			<div class="m-auto sm:w-5/6 w-full rounded grid content-evenly p-4 sm:text-lg text-sm">
-				<table class="border-separate border border-slate-400 bg-slate-50">
+		</nav>
+	</header>
+	<!--App-->
+	<div class="wrapper">
+		<div class="w3-row">
+			<div class="appContainer w3-display-topmiddle">
+				<h1 class="title w3-wide">Nutrition Calculator</h1>
+				<form class="inputForm">
+					<table>
+						<tr>
+							<td><label class="" for="genderName">Gender</label></td>
+							<td></td>
+							<td><select id="gender" onchange="femaleCheckbox()">
+									<option value="male">Male</option>
+									<option value="female">Female</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><label class="" for="age">Age</label></td>
+							<td></td>
+							<td><input type="text" id="age" class="inputDetails"></td>
+
+						</tr>
+						<tr>
+							<td class="w1"><label class="weightLabel" for="WeightType">Weight</label>
+							</td>
+							<td class="w2 weightDrop">
+								<select id="weightType" style="width:55px;font-size:0.95rem" tabindex="-2">
+									<option value="kg" id="kg">kg</option>
+									<option value="lb" id="lb">lb</option>
+								</select>
+							</td>
+							<td><input type="text" id="weight" class="inputDetails">
+							</td>
+						</tr>
+						<tr>
+							<td><label style="padding:0" class="heightLabel" for="heightType">Height</label>
+							</td>
+							<td class="w2">
+								<select id="heightType" style="width:55px;font-size:0.95rem" tabindex="-1">
+									<option value="cm" id="cm">cm</option>
+									<option value="inches" id="inches">inch</option>
+								</select>
+							</td>
+							<td><input type="text" id="height" class="inputDetails"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><label class="" for="activity">Activity level</label></td>
+							<td><select id="activity" name="activity">
+									<option value="sedentary" id="sendentary">Sedentary</option>
+									<option value="lightActive" id="lightActive">Lightly active</option>
+									<option value="modActive" id="modActive">Moderately active</option>
+									<option value="heavyActive" id="heavyActive">Heavily active</option>
+									<option value="athlete" id="athlete">Athlete</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><label class="checkbox" style="padding:0;margin:0;" for="pregnant">Pregnant
+									<input class="input-checkbox" type="checkbox" id="pregnant"
+										style="margin-left:10px"></label>
+							</td>
+						</tr>
+					</table>
+					<td><button class="btn w3-button w3-round w3-hover-light-grey" type="button"
+							id="reset">Reset</button></td>
+					<td><button class="btn w3-button w3-round w3-hover-light-grey" type="button"
+							id="calculate">Calculate</button></td>
+				</form>
+			</div>
+		</div>
+		<!--Separate nutritonal info / hidden until calculated -->
+		<div class="nutInfo" id="displayInfo">
+			<div class="cards_wrap">
+				<div class="w3-row-padding w3-margin-top w3-margin-bottom circleContainer"
+					style="width:90%;margin:0 auto;">
+					<div class="w3-third">
+						<div class="circles" style="width:120px;height:120px;font-size: 2rem; border-color: #0e7490; "
+							id="bmr"></div>
+						<div class="w3-padding w3-center">
+							<div class="w3-center"><b>BMR</b></div>
+						</div>
+					</div>
+					<!--TDEE-->
+					<div class="w3-third">
+						<div class="circles w3-center"
+							style="width:120px;height:120px;font-size: 2rem; border-color: #C7D2FE;" id="tdee">
+						</div>
+						<div class="w3-padding w3-center">
+							<div class="w3-center"><b>TDEE</b></div>
+						</div>
+					</div>
+					<!--BMI-->
+					<div class="w3-third">
+						<div class="circles w3-center" style="width:120px;height:120px; font-size: 2rem;" id="bmi">
+						</div>
+						<div class="w3-padding w3-center">
+							<div class="w3-center"><b>BMI</b></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!--BMI Bar-->
+			<div class="w3-row">
+				<div style="width:100%; margin:auto;">
+					<div class="shortInfo w3-container" style="width:90%; margin:auto;padding-bottom:32px;">
+						<p id="bmrInfo" class="w3-col s4 w3-left-align w3-third"
+							style="padding-right:12px;margin:auto;"></p>
+						<p id="tdeeInfo" class="w3-col s4 w3-left-align w3-third" style="margin:auto;"></p>
+						<p id="bmiInfo" class="w3-col s4 w3-left-align w3-third" style="padding-left:12px;margin:auto;">
+						</p>
+					</div>
+					<div class="bmiBar-container">
+						<div class="bmiBar" style="height:40px; width:88%;font-weight: 600;">
+							<div style="width: 100%;"><i class="fa-solid fa-arrow-down" id="arrow"></i></div>
+							<div class="cbar underweight-bar w3-blue " style="width:3%;height:25px;"></div>
+							<div class="cbar healthy-bar w3-green w3-center " style="width:37%;height:25px;">Healthy
+							</div>
+							<div class="cbar overweight-bar w3-orange w3-text-white w3-center"
+								style="width:37%;height:25px;">Overweight</div>
+							<div class="cbar obese-bar w3-red w3-center" style="width:20%;height:25px;">Obese</div>
+							<div class="cbar morbid-bar w3-highway-red w3-center " style="width:3%;height:25px;"></div>
+						</div>
+						<!--BMI labels-->
+					</div>
+					<div class="w3-row bmi-labels"
+						style="width:90%; margin:auto;font-weight:600;padding-top:10px;font-size: 1rem;">
+						<div class="w3-col w3-left-align w3-text-blue " style="width:7%;text-align: left;">&#8592;18.5
+						</div>
+						<div class="w3-col w3-center w3-text-green bar-label" style="width:33%;padding-right:2rem">
+							18.5-24.9</div>
+						<div class="w3-col w3-center w3-text-orange" style="width:37%;">25-29.9</div>
+						<div class="w3-col w3-center w3-text-red" style="width:20%;">30-39.9</div>
+						<div class="w3-col w3-center" style="width:3%;color:#a6001a">40&#8594;</div>
+					</div>
+					<!--General Information-->
+					<div class="vitInfo w3-container" style="width:90%; margin:auto;padding-top: 32px;">
+						<p>Every person has different recommended daily intakes (RDA) for vitamins and minerals
+							depending
+							on their gender, age or other variables. The table below lists some of the most important
+							nutrients and the one's that differ significantly depending on your input.</p>
+						<p id="vitPara"></p>
+						<p id="exerciseInfo"></p>
+						<p>It is recommended that every adult gets at least 30 minutes a day of moderate intensive
+							activity, five days a week or a total of 150 minutes a week. For more information on how to
+							achieve the recommended exercise amount please follow this <a
+								href="https://www2.hse.ie/wellbeing/how-to-improve-your-fitness.html">link.</a></p>
+					</div>
+				</div>
+			</div>
+			<!--Table of nutrients-->
+			<div class="vitaminTable w3-container">
+				<table class="table w3-center">
 					<thead>
 						<tr>
-							<th colspan="2" class="border border-slate-300 ...">General</th>
-							<th colspan="2" class="border border-slate-300 ...">Vitamins</th>
-							<th colspan="2" class="border border-slate-300 ...">Minerals</th>
+							<th colspan="2" class="">General</th>
+							<th colspan="2" class="">Vitamins</th>
+							<th colspan="2" class="">Minerals</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td class="">Calories</td>
 							<td class="" id="calories"></td>
-							<td class="">Vitamin D</td>
+							<td class="">Vit D</td>
 							<td class="" id="vitD"></td>
 							<td class="">Iron</td>
 							<td class="" id="iron"></td>
@@ -117,7 +227,7 @@
 						<tr>
 							<td class="">Water</td>
 							<td class="" id="water"></td>
-							<td class="">Vitamin C</td>
+							<td class="">Vit C</td>
 							<td class="" id="vitC"></td>
 							<td class="">Magnesium</td>
 							<td class="" id="magnesium"></td>
@@ -125,7 +235,7 @@
 						<tr>
 							<td class="">Protein</td>
 							<td class="" id="protein"></td>
-							<td class="">Vitamin A</td>
+							<td class="">Vit A</td>
 							<td class="" id="vitA"></td>
 							<td class="">Calcium</td>
 							<td class="" id="calcium"></td>
@@ -143,7 +253,6 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 
 </html>

@@ -1,32 +1,335 @@
+*,
+::before,
+::after {
+  border-width: 0;
+  border-style: solid;
+}
+.w3-theme {color:#fff !important; background-color:#06b6d4 !important}
 #displayInfo{
-    display: none;
+  display: none;
+}
+.navigation-bar{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.bmiBar{
+  width: 75%;
+  margin:0 auto;
+ }
+ p{
+   font-weight:400;
+ }
+.cbar{
+height: 100%;
+float:left;
+color:white;
+
+}
+.vitInfo{
+  width:80%;
+}
+
+
+.cards_wrap{
+  padding-bottom:10px;
+  padding-top:6rem;
+
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+.nav{
+  font-size:1rem;
+  color:white;
+  font-family: "helvetica", Sans-Serif;
+  font-weight:600;
+}
+
+h1{
+  margin-bottom: 0;
+}
+td.w1{
+  width: 10% !important;
+ 
+}
+td.w2{
+  width: 5% !important;
+  padding-right: 10px;
+}
+td.w2 {
+  font-size:1rem;
+}
+#weightType, #heightType{
+  border-radius: 2px;
+  font-weight: 500;
+  
+}
+.infoText{
+  font-size: 1rem;
+  font-family: "helvetica", Sans-Serif !important;
+  font-weight: 400;
+  padding:5px;
+  text-align:left;
+}
+.fa-circle-info{
+  color: #374151;
+  font-family: "helvetica", Sans-Serif;
+  font-size: 1.3rem;
 }
 body{
-    background-color: #f1f5f9;
-    font-family: "Arial", Sans-Serif;
-    font-weight: 500;
-    font-size:1rem;
+  background-color: #f1f5f9;
+  font-family: "helvetica", Sans-Serif;
+  font-weight: 500;
+  font-size:1rem;
 }
 input, #activity, #gender{
-    border: 1px #f1f5f9;
-    border-radius: 2px;
-    background-color: #fafafa;
-  }
-  .title{
-      font-weight: 600;
-      font-family: "Arial", Sans-Serif;
-  }
-  button{
-    font-weight: 600;
-  }
-  .box{
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border-radius: 20px;
-  }
-  table span{
-      font-size: 0.7rem;
-  }
-  .bmiChange{
-      color:red;
-  }
+  
+  border-radius: 2px;
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  
+}
+input[type=checkbox]{
+  flex: none;
+  padding: 0;
+}
+.inputDetails{
+  width:81%;
+  height:23px;
+  @media (max-width: 500px) { 
+    width:100%; }
+}
 
+.title{
+  font-weight: 600;
+  background-color: #06b6d4;
+  border-top-left-radius: 0.5rem; 
+  border-top-right-radius: 0.5rem; 
+  padding: 1.25rem; 
+  font-size: 1.875rem;
+  line-height: 2.25rem; 
+  letter-spacing: 0.05em; 
+  text-align: center; 
+  max-width: 24rem; 
+  color: #f1f5f9;
+
+
+@media (min-width: 768px) { 
+text-align: center; }
+
+}
+.inputForm{
+  padding: 2rem; 
+  max-width: 24rem; 
+  border-bottom-right-radius: 0.5rem; 
+  border-bottom-left-radius: 0.5rem; 
+  background-color: #0e7490;
+}
+label{
+  padding-right: 0rem; 
+  font-size: 1.25rem;
+  line-height: 1.75rem; 
+  color: #fafafa;
+}
+ button.btn{
+  background: #06b6d4;
+  font-weight: 600;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem; 
+  padding-left: 1rem;
+  padding-right: 1rem; 
+  margin-top: 1rem; 
+  color: #ffffff; 
+  border-color:#06b6d4;
+  
+ 
+}
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto black;
+}
+
+table span{
+  font-size: 0.7rem;
+}
+.appContainer{
+  padding-top:6rem;
+ 
+}
+
+.bmiChange{
+    color:red;
+}
+.nutInfo{
+  display: flex; 
+  display: flex; 
+  width: 100vw; 
+  padding-top:30rem;
+
+}
+
+.nutContainer{
+  padding: 1rem; 
+  width: 80%; 
+  margin: 0 auto;
+  
+  @media (min-width: 600px) { 
+    padding-top:100rem;
+    background-color:red;
+}
+}
+
+.circleContainer{
+  display: flex; 
+  display: flex; 
+  justify-content: space-around; 
+}
+
+.circleInfo{
+  padding-top: 0.5rem; 
+  color: #374151; 
+  font-weight: 700; 
+  display: flex; 
+  display: flex; 
+  justify-content: space-around; 
+}
+.circles{
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  background-color: #ffffff; 
+  color: #374151; 
+  font-weight: 700; 
+  border-radius: 9999px; 
+  border-width: 2px; 
+  margin: 0 auto;
+
+}
+#demo{
+  background-color: #06b6d4;
+  color: white;
+}
+a:link{
+  color: #0e7490;
+}
+a:visited{
+  color:purple;
+}
+nav a:visited{
+  color:white;
+}
+
+.wrapper{
+
+  height:100%;
+}
+
+.vitaminTable{
+display: grid; 
+padding: 1rem; 
+padding-bottom:3rem;
+font-size: 1rem;
+line-height: 1.25rem; 
+align-content: space-evenly; 
+width: 100%; 
+border-radius: 0.25rem; 
+@media (min-width: 640px) { 
+  font-size: 1.125rem;
+  line-height: 1.75rem; 
+  width: 85%; 
+}
+}
+
+.table { 
+  width:90%;
+  border-collapse: collapse; 
+  margin:0 auto;
+}
+/* Zebra striping */
+.table tr:nth-of-type(odd) { 
+  font-weight: 400;
+}
+.table tr th { 
+  background: #06b6d4; 
+  color: white; 
+  font-weight: 700;
+  
+}
+.table td, .table th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+  font-weight: 400;
+}
+.table tr td:nth-child(3),
+.table tr td:nth-child(4){
+  background: #eee;
+}
+.table tr td:nth-child(2),
+.table tr td:nth-child(4){
+  border-right:2px solid #06b6d4; 
+}
+.table thead tr th:nth-child(2),
+.table thead tr th:nth-child(1){
+  border-right:2px solid #06b6d4; 
+}
+
+
+/*404 page*/
+.page{
+  font-size:8rem;
+}
+.page-container{
+  padding-left: 40px;
+  padding-bottom: 20px;
+}
+
+.goBack > a > button{
+  background: #06b6d4;
+  font-weight: 600;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem; 
+  padding-left: 1rem;
+  padding-right: 1rem; 
+  margin-top: 1rem; 
+  color: #ffffff; 
+  border-color:#06b6d4;
+  border-radius: 2px;
+}
+
+.icon-image{
+  height: 300px;
+}
+.bmi-labels{
+  width:90%;
+  margin:auto;
+  font-weight:600;
+  padding-top:10px;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 600px){
+  .vitInfo{
+    width:90%;
+  }
+  body{
+    font-weight: 400;
+  }
+  .bar-label{
+   padding-left: 1rem;
+   text-align:right;
+  }
+  .bmi-labels{
+    width: 100%;
+    padding:0px;
+  }
+  }
+ 
