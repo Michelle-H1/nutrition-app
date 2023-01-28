@@ -1,3 +1,3 @@
 # nutrition-app
-This is an app that reads outputs the bmi, tdee, and bmr depending on user input.
-It also displays a list of required nutrients
+This is a nutrition app that outputs  bmi, tdee, and bmr and other nutritional inforamtion.
+Depending on the user input, it  displays a list of nutrient requirements for their age, gender and other variables. 
